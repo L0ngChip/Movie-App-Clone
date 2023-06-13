@@ -15,6 +15,7 @@
         justify-content: center;
     }
 }
+
 .header {
     height: $header-height;
     position: fixed;
@@ -23,11 +24,6 @@
     width: 100%;
     z-index: 99;
     transition: height 0.3 ease, background-color 0.3 ease;
-
-    &.shrink {
-        height: $header-shrink-height;
-        background-color: $body-bg;
-    }
 
     &_wrap {
         @include flex(center, space-between);
@@ -40,53 +36,12 @@
         }
     }
 
-    &_nav {
-        @include flex(center, unset);
-
-        gap: 2rem; /* ===  & > * ~ * {
-                            margin-left: 2rem;
-                           } */
-        li {
-            padding: 5px 0;
-            font-weight: 700;
-            position: relative;
-            font-size: 1.5rem;
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 0;
-                transition: width 0.5s ease;
-                height: 2px;
-                background-color: $main-color;
-            }
-            &.active::after,
-            &:hover::after {
-                width: 100%;
-            }
-        }
-        @include mobile {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            height: 5rem;
-            width: 100%;
-            padding: 0 10px;
-            box-shadow: $box-shadow;
-            gap: 0;
-            @include flex(center, space-between);
-        }
-    }
-
     &_btn {
         display: flex;
         position: relative;
         gap: 16px;
 
-        &_login,
-        &_account {
+        &_login {
             padding: 8px 24px;
             border: 1px solid rgb(203, 213, 219);
             background-color: transparent;
@@ -95,8 +50,8 @@
             font-weight: 600;
             color: $txt-color;
         }
-        &_register,
-        &_logout {
+
+        &_register {
             padding: 8px 24px;
             background-color: red;
             border: none;
@@ -111,11 +66,28 @@
             right: 0;
             gap: 4px;
             &_login,
-            &_register,
-            &_account,
-            &_logout {
+            &_register {
                 padding: 4px 12px;
             }
         }
+    }
+}
+
+.account-bg {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.account {
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    padding-left: 36px;
+
+    &-title {
+        font-size: 30px;
+        font-weight: 700;
+        color: $white;
     }
 }

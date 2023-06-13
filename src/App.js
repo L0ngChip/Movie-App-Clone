@@ -7,11 +7,17 @@ import Public from './pages/Public';
 import Home from './pages/Home/Home';
 import Catalog from './pages/Catalog';
 import { Details } from './pages/Details';
+import { Login } from './pages/Login';
+import { Register } from './pages/Register';
+import { Account } from './pages/Account';
 
 function App() {
     return (
         <>
             <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/account" element={<Account />} />
                 <Route path="" element={<Public />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/:category/search/:keyword" element={<Catalog />} />

@@ -1,7 +1,42 @@
 @use '../../scss/' as *;
 
 .movie-list {
+    position: relative;
+    .btn-left,
+    .btn-right {
+        display: none;
+        position: absolute;
+        top: 30%;
+        padding: 4px;
+        color: $black;
+        background-color: $white;
+        border-radius: 999px;
+        z-index: 50;
+        cursor: pointer;
+    }
+
+    .btn-left {
+        left: -12px;
+        padding-right: 8px;
+        margin-left: -12px;
+    }
+    .btn-right {
+        right: -12px;
+
+        padding-left: 8px;
+        margin-right: -12px;
+    }
+
+    &:hover .btn-left,
+    &:hover .btn-right {
+        display: block;
+    }
 }
+
+.slider {
+    scroll-behavior: smooth;
+}
+
 .movie-item {
     width: 15%;
     @include tablet {

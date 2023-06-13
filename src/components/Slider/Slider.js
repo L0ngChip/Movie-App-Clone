@@ -23,7 +23,6 @@ const Slider = () => {
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, { params });
                 setMovieItems(response?.results.slice(0, 4));
-                console.log(response);
             } catch {
                 console.log('error');
             }
@@ -38,7 +37,7 @@ const Slider = () => {
                 grabCursor={true}
                 spaceBetween={0}
                 slidesPerView={1}
-                // autoplay={{ delay: 3000 }}
+                autoplay={{ delay: 3000 }}
             >
                 {movieItems?.map((item, i) => (
                     <SwiperSlide key={i}>

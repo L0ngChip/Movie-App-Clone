@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PageHeader } from '~/components/PageHeader';
 
@@ -7,7 +7,10 @@ import { MovieGrid } from '~/components/MovieGrid';
 
 const Catalog = () => {
     const { category } = useParams();
-    console.log(category);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <PageHeader>{category === cate.movie ? 'Movies' : 'TV Series'}</PageHeader>

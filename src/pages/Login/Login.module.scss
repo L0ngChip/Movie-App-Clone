@@ -1,0 +1,160 @@
+@use '../../scss/' as *;
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+    @include flex(center, unset);
+
+    img {
+        width: 50px;
+        margin-right: 10px;
+    }
+    @include mobile {
+        width: 30px;
+        margin-right: 0;
+        justify-content: center;
+    }
+}
+
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: height 0.3 ease, background-color 0.3 ease;
+
+    &_wrap {
+        @include flex(center, space-between);
+        height: 100%;
+        padding: 0 2rem;
+        width: 100%;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &_btn {
+        display: flex;
+        position: relative;
+        gap: 16px;
+
+        &_login {
+            padding: 8px 24px;
+            border: 1px solid rgb(203, 213, 219);
+            background-color: transparent;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $txt-color;
+        }
+
+        &_register {
+            padding: 8px 24px;
+            background-color: red;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $txt-color;
+        }
+        @include mobile {
+            position: fixed;
+            top: 0;
+            right: 0;
+            gap: 4px;
+            &_login,
+            &_register {
+                padding: 4px 12px;
+            }
+        }
+    }
+}
+
+.bg-login {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.login {
+    position: fixed;
+    width: 100%;
+    padding: 96px 16px;
+    z-index: 40;
+
+    &-overlay {
+        max-width: 450px;
+        height: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba($color: $black, $alpha: 0.8);
+        color: $white;
+    }
+
+    &-bg {
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 64px 0;
+    }
+
+    &-tiltle {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 0;
+        gap: 16px;
+
+        input {
+            width: 100%;
+            padding: 12px 4px;
+            border-radius: $border-radius-xs;
+            background-color: rgb(55, 65, 81);
+        }
+
+        button {
+            padding: 8px 4px;
+            border-radius: $border-radius-xs;
+            background-color: red;
+            border: none;
+            color: $white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
+
+.remember-password {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgb(75, 85, 99);
+}
+
+.sign-up-link {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    gap: 8px;
+}
+
+.error {
+    padding: 12px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: red;
+    border-radius: $border-radius-xs;
+}

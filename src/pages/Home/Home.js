@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
-import styles from './Home.module.scss';
 import { Slider } from '~/components/Slider';
 import { OutlineButton } from '~/components/Button/Button';
 import { MovieList } from '~/components/MovieList';
 import { category, movieType, tvType } from '~/api/tmdbApi';
 
-const cx = classNames.bind(styles);
 const Home = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <>
             <Slider />
@@ -21,7 +22,7 @@ const Home = () => {
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.movie} type={movieType.popular} />
+                    <MovieList rowId="01" category={category.movie} type={movieType.popular} />
                 </div>
                 <div className={'section mb-3'}>
                     <div className={'section_header mb-2'}>
@@ -30,7 +31,7 @@ const Home = () => {
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.movie} type={movieType.top_rated} />
+                    <MovieList rowId="02" category={category.movie} type={movieType.top_rated} />
                 </div>
                 <div className={'section mb-3'}>
                     <div className={'section_header mb-2'}>
@@ -39,7 +40,7 @@ const Home = () => {
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.tv} type={movieType.popular} />
+                    <MovieList rowId="03" category={category.tv} type={tvType.popular} />
                 </div>
                 <div className={'section mb-3'}>
                     <div className={'section_header mb-2'}>
@@ -48,7 +49,7 @@ const Home = () => {
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.tv} type={movieType.top_rated} />
+                    <MovieList rowId="04" category={category.tv} type={tvType.top_rated} />
                 </div>
             </div>
         </>

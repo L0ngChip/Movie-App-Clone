@@ -1,5 +1,56 @@
 @use '../../scss/' as *;
 
+.list {
+    margin: 2rem 0;
+    position: relative;
+    .btn-left,
+    .btn-right {
+        display: none;
+        position: absolute;
+        top: 45%;
+        padding: 4px;
+        color: $black;
+        background-color: $white;
+        border-radius: 999px;
+        z-index: 50;
+        cursor: pointer;
+    }
+
+    .btn-left {
+        left: 24px;
+        padding-right: 8px;
+        margin-left: -12px;
+    }
+    .btn-right {
+        right: 24px;
+        padding-left: 8px;
+        margin-right: -12px;
+    }
+
+    &:hover .btn-left,
+    &:hover .btn-right {
+        display: block;
+    }
+
+    &-title {
+        padding-left: 1.5rem;
+        color: gray;
+        font-size: thin;
+        font-weight: 500;
+    }
+}
+
+.movie-item {
+    width: 15%;
+    @include tablet {
+        width: 30%;
+    }
+
+    @include mobile {
+        width: 40%;
+    }
+}
+
 .movie-card {
     position: relative;
     background-position: top;
@@ -45,7 +96,17 @@
     justify-content: space-between;
 }
 
-.icon-heart {
+.icon-delete {
     border-radius: $border-radius-xs;
     cursor: pointer;
+}
+
+.no-list {
+    padding-left: 36px;
+    margin-top: 24px;
+
+    &-title {
+        font-size: 20px;
+        color: $white;
+    }
 }
